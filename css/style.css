@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 1px;
+}
+
+.container {
+  background-color: #762A96;
+  border-radius: 10px;
+  max-width: 465px;
+  height: 550px;
+  margin: 3em auto;
+}
+
+.location-div {
+  background-color: #1C1C1C;
+  border-radius: 10px 10px 0 0;
+  color: grey;
+  height: 55px;
+}
+
+.location-div > i, h3 {
+  display: inline-block;
+}
+
+.location-div > i {
+  margin: 0 5px 0 15px;
+  font-size: 25px;
+}
+
+.date {
+  float: right;
+  margin-right: 15px;
+}
+
+.icon-container {
+  height: 250px;
+  text-align: center;
+}
+
+.icon-container > i {
+  font-size: 200px;
+  color: #FFF;
+  margin: .25em -15px 0 .35em;
+}
+
+hr {
+  width: 85%;
+  margin: 4em auto 1em;
+}
+
+.forecast-container {
+  color: white;
+}
+
+.forecast-container:hover {
+  cursor: pointer;
+}
+
+.temp-container {
+  display: inline-block;
+  width: 48%;
+}
+
+.temperature {
+  float: left;
+  font-size: 70px;
+  margin: 10px auto 10px 15%;
+}
+
+.details-container {
+  float: right;
+  width: 48%;
+  display: inline-block;
+}
+
+.details-container > i, h4 {
+  font-size: 35px;
+  display: inline-block;
+}
+
+.details-container > i {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.details-container > h4 {
+  margin-top: 10px;
+  margin-bottom: 1px;
+}
+
+.footer-text {
+  text-align: center;
+  margin-top: -25px;
+}
+
+.footer-text > a {
+  text-decoration: none;
+}
