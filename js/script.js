@@ -3,22 +3,27 @@ $(document).ready(function() {
         d = new Date(),
         today = weekdays[d.getDay()];
 
+  // First AJAX request to ipinfo api to retrieve users location
   $.ajax({
     type: 'GET',
     url: 'http://ipinfo.io/json'
   })
   .done((result) => {
+    // Assigning users city and country
     const city = result.city,
           country = result.country;
 
+    // Variables for second api request to openweathermap api
     const url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city + ',' + country,
           key = '&APPID=6e19d1444dbeeede236c3f8c31cdcc28';
 
+    // AJAX request to openweathermap for users local weather information
     $.ajax({
     type: 'GET',
     url: url + key,
     })
     .done((result) => {
+      // Assigning results to variables & converting measurements
       const city = result.name + ", " + country,
             temperature = Math.round(result.main.temp),
             celsius = Math.round(temperature - 273.15) + "°C",
@@ -29,6 +34,7 @@ $(document).ready(function() {
             forecast = result.weather[0].id,
             description = result.weather[0].main;
 
+      // Assigning results to their appropriate elements
       $(".date").text(today);
       $(".temperature").text(fahrenheit);
       $(".location").text(city);
@@ -36,6 +42,7 @@ $(document).ready(function() {
       $(".humidity").text(humidity);
       $(".wind").text(windImperial);
 
+      // Alternates between metric and imperial when forecast section is clicked
       $(".forecast-container").click(() => {
         $(".temperature").text((i, text) => {
           return text === fahrenheit ? celsius : fahrenheit;
@@ -44,6 +51,7 @@ $(document).ready(function() {
           return text === windImperial ? windMetric : windImperial;
         }).addClass("animated flipInY");
 
+        // To reset animation, setTimeOut used to remove animate.css classes (i know...not ideal)
         setTimeout(() => {
           $(".temperature").removeClass("animated flipInY");
         }, 300);
@@ -52,6 +60,7 @@ $(document).ready(function() {
         }, 300);
       });
 
+      // Displays appropriate weather icon depending on forecast
       switch(description) {
         case "Thunderstorm":
           $(".icon-container")
