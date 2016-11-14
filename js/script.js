@@ -39,11 +39,11 @@ $(document).ready(function() {
       $(".forecast-container").click(() => {
         $(".temperature").text((i, text) => {
           return text === fahrenheit ? celsius : fahrenheit;
-        });
+        }).addClass("animated flipInX");
         $(".wind").text((i, text) => {
           return text === windImperial ? windMetric : windImperial;
-        });
-      })
+        }).addClass("animated flipInX");
+      });
 
       switch(description) {
         case "Thunderstorm":
@@ -61,7 +61,7 @@ $(document).ready(function() {
             break;
         case "Clear":
           $(".icon-container")
-            .append("<i class='fa fa-sun-o' aria-hidden='true'></i>");
+            .append("<i class='fa fa-sun-o animated fadeInUp' aria-hidden='true'></i>");
             break;
         case "Clouds":
           $(".icon-container")
