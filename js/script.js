@@ -39,10 +39,17 @@ $(document).ready(function() {
       $(".forecast-container").click(() => {
         $(".temperature").text((i, text) => {
           return text === fahrenheit ? celsius : fahrenheit;
-        }).addClass("animated flipInX");
+        }).addClass("animated flipInY");
         $(".wind").text((i, text) => {
           return text === windImperial ? windMetric : windImperial;
-        }).addClass("animated flipInX");
+        }).addClass("animated flipInY");
+
+        setTimeout(() => {
+          $(".temperature").removeClass("animated flipInY");
+        }, 300);
+        setTimeout(() => {
+          $(".wind").removeClass("animated flipInY");
+        }, 300);
       });
 
       switch(description) {
