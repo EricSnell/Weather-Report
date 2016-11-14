@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  // Since getDay() returns a number that corresponds to the current day, we use it to select day from array
   const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
         d = new Date(),
         today = weekdays[d.getDay()];
@@ -63,33 +64,26 @@ $(document).ready(function() {
       // Displays appropriate weather icon depending on forecast
       switch(description) {
         case "Thunderstorm":
-          $(".icon-container")
-            .append("<i class='fa fa-bolt' aria-hidden='true'></i>");
+          $(".icon").addClass("fa fa-bolt");
             break;
         case "Rain":
         case "Drizzle":
-          $(".icon-container")
-            .append("<i class='fa fa-tint' aria-hidden='true'></i>");
+          $(".icon").addClass("fa fa-tint");
             break;
         case "Snow":
-          $(".icon-container")
-            .append("<i class='fa fa-snowflake-o' aria-hidden='true'></i>");
+          $(".icon").addClass("fa fa-snowflake-o");
             break;
         case "Clear":
-          $(".icon-container")
-            .append("<i class='fa fa-sun-o animated fadeInUp' aria-hidden='true'></i>");
+          $(".icon").addClass("fa fa-sun-o animated fadeInUp");
             break;
         case "Clouds":
-          $(".icon-container")
-            .append("<i class='fa fa-cloud' aria-hidden='true'></i>");
+          $(".icon").addClass("fa fa-cloud");
             break;
         case "Extreme":
-          $(".icon-container")
-            .append("<i class='fa fa-exclamation-triangle' aria-hidden='true'></i>");
+          $(".icon").addClass("fa fa-exclamation-triangle");
             break;
         default:
-          $(".icon-container")
-            .append("<i class='fa fa-sun-o' aria-hidden='true'></i>");
+          $(".icon").addClass("fa fa-sun-o");
             break;
           break;
       }
